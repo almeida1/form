@@ -62,18 +62,20 @@ const App = () => {
     },
   ];
 
-  const handleSubmit = (e) => {
+  const manipulaSubmit = (e) => {
+    //evita o comportamento padrao na chamada do submit
     e.preventDefault();
-    console.log(values);
+    console.log("foi clicado no submit => ", values);
   };
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
+    console.log("form modificado entrada => ", e.target.name);
   };
 
   return (
     <div className="app">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={manipulaSubmit}>
         <h1>Register</h1>
         {inputs.map((input) => (
           <FormInput
